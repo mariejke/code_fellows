@@ -1,0 +1,37 @@
+<script>
+	var Animal = function(n, s, f){
+  this.name = n;
+  this.speed = s;
+  this.focus = f;
+  this.positionY = 0;
+  this.positionX = 0;
+  this.reportY = function() {
+    return this.name + " is at " + this.positionY;
+  };
+  this.reportX = function() {
+    return this.name + " wandered " + this.positionX + " off.";
+  };
+  this.run = function() {
+    if(this.focus > (Math.random() * 10)) {
+    this.positionY += this.speed;
+    } else{
+      this.positionX += this.speed
+    }
+
+  };
+}
+
+var turtle = new Animal("Franklin", 2, 9),
+    rabbit = new Animal("Wiww", 7, 2);
+
+    var distance = 50;
+
+    while(turtle.positionY < distance && rabbit.positionY < distance) {
+    turtle.run();
+    rabbit.run();
+  } 
+  console.log( turtle.reportY());
+  console.log( rabbit.reportY());
+  console.log( turtle.reportX());
+  console.log( rabbit.reportX());
+  </script>
